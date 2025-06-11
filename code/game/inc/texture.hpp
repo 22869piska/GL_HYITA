@@ -1,6 +1,7 @@
 #pragma once
 #ifndef texturehpp
 #define texturehpp
+#define uint unsigned int
 
 #include<glad/glad.h>
 #include<GLFW/glfw3.h>
@@ -15,12 +16,13 @@ class Textures
 {
 public:
 
-	unsigned int LoadTexture(const char*);
+	unsigned int LoadTextureRGB(const char*);
+	unsigned int LoadTextureRGBA(const char*);
 	void LoadAllTexture();
 
 	//-------------
 	unsigned int texture;
-
+	uint stray228;
 
 };
 

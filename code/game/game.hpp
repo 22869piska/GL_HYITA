@@ -15,6 +15,8 @@ public:
 
 	void Start();
 	void GameInit();
+
+	
 	
 	
 
@@ -23,8 +25,13 @@ public:
 //game_proc->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
  private:
 
+	
+
+
+
+
 };
-void viewport_size_callback(GLFWwindow* window, int width, int height);
+
 
 
 

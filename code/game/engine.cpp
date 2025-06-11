@@ -9,9 +9,24 @@ Engine::Engine()
 #ifdef _DEBUG
 	std::cout << "CREATE_ENGINE_CLASS \n";
 #endif // _DEBUG
-	Texture = new Textures;
-}
 
+	Texture = new Textures;
+	camera  = new Camera;
+	player  = new Player;
+	gameobj = new GameObj;
+	
+
+}
+void Engine::InPut(GLFWwindow* window_)
+{
+
+	if (glfwGetKey(window, GLFW_KEY_UP) ==    GLFW_REPEAT)    { KEY_STATE = GLFW_KEY_UP; }
+	if (glfwGetKey(window, GLFW_KEY_DOWN) ==  GLFW_REPEAT)  {   KEY_STATE = GLFW_KEY_DOWN; }
+	if (glfwGetKey(window, GLFW_KEY_LEFT) ==  GLFW_REPEAT)  {   KEY_STATE = GLFW_KEY_LEFT; }
+	if (glfwGetKey(window, GLFW_KEY_RIGHT) == GLFW_REPEAT) {    KEY_STATE = GLFW_KEY_RIGHT; }
+
+	
+}
 //------------
 void Engine::InitGlObj()
 {
@@ -93,20 +108,20 @@ void Engine::DrawSquare_Ex(Shader* shader_ptr, unsigned int EBO_ptr,const int mo
 	glDrawElements(mode, 6, GL_UNSIGNED_INT, 0);
 }
 //----------------------------------------------------------------------------------------------------------------------
-void Engine::DrawSquareTexture(Shader* shader_ptr, unsigned int EBO_ptr,Textures* texture)
+void Engine::DrawSquareTexture(Shader* shader_ptr, unsigned int EBO_ptr,unsigned int tex_)
 {
 
 	shader_ptr->use();
-	glBindTexture(GL_TEXTURE_2D, texture->texture);
+	glBindTexture(GL_TEXTURE_2D, tex_);
 	glBindVertexArray(EBO_ptr);
 	glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
 
 };
 //->ex
-void Engine::DrawSquareTexture_Ex(Shader* shader_ptr, unsigned int EBO_ptr, const int mode, Textures* texture)
+void Engine::DrawSquareTexture_Ex(Shader* shader_ptr, unsigned int EBO_ptr, const int mode, unsigned int tex_)
 {
 	shader_ptr->use();
-	glBindTexture(GL_TEXTURE_2D, texture->texture);
+	glBindTexture(GL_TEXTURE_2D, tex_);
 	glBindVertexArray(EBO_ptr);
 	glDrawElements(mode, 6, GL_UNSIGNED_INT, 0);
 }

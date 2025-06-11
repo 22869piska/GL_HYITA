@@ -14,7 +14,7 @@ Game::Game(GLFWwindow* window_main_ptr)
 }
 
 //zalupa
-   float width = 1280; float height = 860;
+float width = 1280; float height = 860;
 
 //
 
@@ -22,44 +22,43 @@ void Game::Start()
 {
 	GameInit();
 	
-
 	glDisable(GL_DEPTH_TEST);
+	
+	player->player_pos = glm::vec2(200.f, 800.f);
 
 	//------------------------------------parasha
 	while (!glfwWindowShouldClose(window))
 	{
 		
+		InPut(window);
+		camera->SetDataInShader(shader_texture, width, height, camera->camera_pos,player);
+
+
 		glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
 		glClear(GL_COLOR_BUFFER_BIT);
 
 
-
-		glm::mat4 view = glm::mat4(1.0f); 
-		glm::mat4 projection = glm::mat4(1.0f);
-
-		projection = glm::ortho(0.0f, width, 0.0f, height, -1.0f, 100.0f);
-
-		view = glm::translate(view, glm::vec3(0.0f, 0.0f, -1.0f));
 		
-		shader_texture->setMat4("projection", projection); 
-		shader_texture->setMat4("view", view);
-
-
-			glm::mat4 model = glm::mat4(1.0f);
-			model = glm::translate(model, glm::vec3(200,300,0));
-			model = glm::scale(model, glm::vec3(150.0f, 150.0f, 1.0f)); 
-			shader_texture->setMat4("model", model);
-
-		   DrawSquareTexture(shader_texture, EBO_tex, Texture);
-
-		    model = glm::mat4(1.0f);
-		    model = glm::translate(model, glm::vec3(400, 300, 1));
-		    model = glm::scale(model, glm::vec3(200.0f, 150.0f, 1.0f)); 
-			model = glm::rotate(model, glm::radians(-55.0f * (float)glfwGetTime() ), glm::vec3(1.0f, -1.0f, -1.0f));
-		    shader_texture->setMat4("model", model);
-
-		   DrawSquareTexture(shader_texture, EBO_tex, Texture);
+		gameobj->shader = shader_texture;
+		gameobj->texture = Texture->texture;
+		gameobj->EBO = EBO_tex;
 		
+
+		for (int i=0; i !=12; i++ ) 
+		{
+			gameobj->set_pos = glm::vec2(100.f+(100.f*i), 400.f);
+			gameobj->Box();
+
+		}
+		 
+		gameobj->Box(shader_texture, Texture->stray228, EBO_tex, glm::vec2(200.f, 700.f));
+		
+		
+
+
+
+
+
 
 		 //-------------------------endw
 		 glfwSwapBuffers(window);
@@ -74,6 +73,8 @@ void Game::Start()
 
 
 //-------------------------------------------------------------------------------------------------------------
+
+//-------------------------------------------------------------------------------------------------------------
 void Game::GameInit()
 {
 	InitGlObj();
@@ -86,6 +87,7 @@ void Game::GameInit()
 
 	glfwSwapInterval(60);
 }
+
 //callback
 void viewport_size_callback(GLFWwindow* window, int width_, int height_)
 {

@@ -15,8 +15,11 @@
 //-------------------
 #include"shader/shader_class.hpp"
 
+#include"inc/camera.hpp"
+#include"inc/player.hpp"
+#include"inc/texture.hpp"
+#include"inc/game_obj.hpp"
 
-#include"inc\texture.hpp"
  
 
 
@@ -30,25 +33,27 @@ public:
 
 	void  Draw3Angle(Shader* , unsigned int);  void  Draw3Angle_Ex(Shader*, unsigned int,const int);
 	void  DrawSquare(Shader*, unsigned int);  void  DrawSquare_Ex(Shader*, unsigned int, const int);
-	void  DrawSquareTexture(Shader* shader_ptr, unsigned int EBO_ptr,Textures* texture);
-	void  DrawSquareTexture_Ex(Shader* shader_ptr, unsigned int EBO_ptr, const int mode, Textures* texture);
+	void  DrawSquareTexture(Shader* shader_ptr, unsigned int EBO_ptr, unsigned int tex_);
+	void  DrawSquareTexture_Ex(Shader* shader_ptr, unsigned int EBO_ptr, const int mode, unsigned int tex_);
 
 
+	
+
+
+	void InPut(GLFWwindow* window_);
+	
 
 	////////////////////////////////////////////////////////////////////////////////DATA-->
 
-	GLFWwindow* window; 
-	Textures* Texture;
+	GLFWwindow* window;
+
+	Textures* Texture; Camera* camera; Player* player; GameObj* gameobj; 
 
 
-	//CONST
+	//--
+	int KEY_STATE = NULL;
 	
 	
-
-
-
-
-
 	//--------------------------------GL DATA -->
 	
 	                                  //GL тестовый шейдер
@@ -92,6 +97,44 @@ public:
 	//====================================================
 private:
 };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//callback->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+void viewport_size_callback(GLFWwindow* window, int width, int height);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 #endif // !enginehpp
 
