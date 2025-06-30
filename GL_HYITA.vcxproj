@@ -153,7 +153,6 @@
     <ClCompile Include="code\game\game.cpp" />
     <ClCompile Include="code\game\inc\camera.cpp" />
     <ClCompile Include="code\game\inc\game_obj.cpp" />
-    <ClCompile Include="code\game\inc\player.cpp" />
     <ClCompile Include="code\game\inc\texture.cpp" />
     <ClCompile Include="code\MAIN.cpp" />
     <ClCompile Include="glad.c" />
@@ -168,7 +167,6 @@
     <ClInclude Include="code\game\game.hpp" />
     <ClInclude Include="code\game\inc\camera.hpp" />
     <ClInclude Include="code\game\inc\game_obj.hpp" />
-    <ClInclude Include="code\game\inc\player.hpp" />
     <ClInclude Include="code\game\inc\texture.hpp" />
     <ClInclude Include="code\game\shader\shader_class.hpp" />
     <ClInclude Include="code\MAIN.hpp" />

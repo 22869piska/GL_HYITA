@@ -33,9 +33,6 @@
     <ClCompile Include="code\game\inc\camera.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
-    <ClCompile Include="code\game\inc\player.cpp">
-      <Filter>Исходные файлы</Filter>
-    </ClCompile>
     <ClCompile Include="code\game\inc\game_obj.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
@@ -60,9 +57,6 @@
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
     <ClInclude Include="code\game\inc\camera.hpp">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
-    <ClInclude Include="code\game\inc\player.hpp">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
     <ClInclude Include="code\game\inc\game_obj.hpp">
