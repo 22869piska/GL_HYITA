@@ -14,6 +14,8 @@ unsigned int Textures::LoadTextureRGB(const char* path)
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
 
 	int width, height, nrChannels;
+
+	stbi_set_flip_vertically_on_load(true);
 	unsigned char* data = stbi_load(path, &width, &height, &nrChannels, 0);
 	if (data)
 	{
@@ -41,6 +43,8 @@ unsigned int Textures::LoadTextureRGBA(const char* path)
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
 
 	int width, height, nrChannels;
+
+	stbi_set_flip_vertically_on_load(true);
 	unsigned char* data = stbi_load(path, &width, &height, &nrChannels, 0);
 	if (data)
 	{
@@ -51,6 +55,7 @@ unsigned int Textures::LoadTextureRGBA(const char* path)
 	{
 		std::cout << "Failed to load texture" << std::endl;
 	}
+	
 	stbi_image_free(data);
 
 	return my_texture;
@@ -59,7 +64,8 @@ unsigned int Textures::LoadTextureRGBA(const char* path)
 //;---------------------------------------------------------------------------------------------------------
 void Textures::LoadAllTexture()
 {
-	texture = LoadTextureRGB("res/red_svaston.png");
-	stray228 = LoadTextureRGBA("res/stray.png");
+	texture    = LoadTextureRGB("res/red_svaston.png");
+	stray228   = LoadTextureRGBA("res/stray.png");
+	MGE_sniper = LoadTextureRGB("res/MGE_sniper.jpg");
 	
 }

@@ -12,18 +12,18 @@ Engine::Engine()
 
 	Texture = new Textures;
 	camera  = new Camera;
-	player  = new Player;
-	gameobj = new GameObj;
 	
+	gameobj = new GameObj;
+	param   = new Param;
 
 }
 void Engine::InPut(GLFWwindow* window_)
 {
 
-	if (glfwGetKey(window, GLFW_KEY_UP) ==    GLFW_REPEAT)    { KEY_STATE = GLFW_KEY_UP; }
-	if (glfwGetKey(window, GLFW_KEY_DOWN) ==  GLFW_REPEAT)  {   KEY_STATE = GLFW_KEY_DOWN; }
-	if (glfwGetKey(window, GLFW_KEY_LEFT) ==  GLFW_REPEAT)  {   KEY_STATE = GLFW_KEY_LEFT; }
-	if (glfwGetKey(window, GLFW_KEY_RIGHT) == GLFW_REPEAT) {    KEY_STATE = GLFW_KEY_RIGHT; }
+	if (glfwGetKey(window, GLFW_KEY_UP) ==    GLFW_REPEAT)  {   KEY_STATE = GLFW_KEY_UP;        }
+	if (glfwGetKey(window, GLFW_KEY_DOWN) ==  GLFW_REPEAT)  {   KEY_STATE = GLFW_KEY_DOWN;      }
+	if (glfwGetKey(window, GLFW_KEY_LEFT) ==  GLFW_REPEAT)  {   KEY_STATE = GLFW_KEY_LEFT;      }
+	if (glfwGetKey(window, GLFW_KEY_RIGHT) == GLFW_REPEAT)  {   KEY_STATE = GLFW_KEY_RIGHT;     }
 
 	
 }

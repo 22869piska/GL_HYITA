@@ -22,7 +22,10 @@ public:
 
 	//-------------
 	unsigned int texture;
+
+
 	uint stray228;
+	uint MGE_sniper;
 
 };
 

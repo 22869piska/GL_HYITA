@@ -16,7 +16,6 @@
 #include"shader/shader_class.hpp"
 
 #include"inc/camera.hpp"
-#include"inc/player.hpp"
 #include"inc/texture.hpp"
 #include"inc/game_obj.hpp"
 
@@ -36,22 +35,17 @@ public:
 	void  DrawSquareTexture(Shader* shader_ptr, unsigned int EBO_ptr, unsigned int tex_);
 	void  DrawSquareTexture_Ex(Shader* shader_ptr, unsigned int EBO_ptr, const int mode, unsigned int tex_);
 
-
-	
-
-
 	void InPut(GLFWwindow* window_);
 	
-
 	////////////////////////////////////////////////////////////////////////////////DATA-->
 
 	GLFWwindow* window;
 
-	Textures* Texture; Camera* camera; Player* player; GameObj* gameobj; 
+	Textures* Texture; Camera* camera; GameObj* gameobj; Param* param;
 
 
 	//--
-	int KEY_STATE = NULL;
+	int KEY_STATE = NULL; 
 	
 	
 	//--------------------------------GL DATA -->

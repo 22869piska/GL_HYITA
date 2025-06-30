@@ -15,7 +15,8 @@
 
 //-------------------
 #include"C:\Users\PROPER069\Desktop\vs\code\game\shader\shader_class.hpp"
-#include"player.hpp"
+#include"game_obj.hpp"
+
 
 //CAMERA->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
@@ -26,12 +27,12 @@ public:
 
 	//CameraUpdate();
 
-	void SetDataInShader(Shader*, const float, const float, const glm::vec3 camera_pos,Player* player_);
-
+	void SetDataViewInShader(Shader*, const float, const float, const glm::vec3 camera_pos_,const glm::vec2 player_pos  );
+	void SetDataViewInShader(Shader*, const float, const float, const glm::vec2 player_pos);
 
 
 	//data
-	glm::vec3 camera_pos = glm::vec3(0.0f, 0.0f, 0.0f);
+	glm::vec3 camera_pos = glm::vec3(0.0f, 0.0f,0.0f);
 
 
 
